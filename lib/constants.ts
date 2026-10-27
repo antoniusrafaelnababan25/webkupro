@@ -1,7 +1,7 @@
 export const BRAND = {
   name: "WebKu",
   suffix: ".pro",
-  email: "service@.webkupro.co.id",
+  email: "service@webkupro.co.id",
   phone: "+62 852 7486 8615",
   address: "DKI JAKARTA",
 }
@@ -71,13 +71,92 @@ export const HERO = {
 }
 
 // ============================================
-// TRUSTPILOT
+// TRUSTPILOT & STATS
 // ============================================
 export const TRUSTPILOT = {
   rating: "4.9",
   outOf: "5",
   text: "Dipercaya oleh pemilik 150+ bisnis di Indonesia",
 }
+
+export const STATS = [
+  { num: "150+", label: "Website Dikerjakan" },
+  { num: "100%", label: "Garansi Revisi" },
+  { num: "98%", label: "Kepuasan Klien" },
+]
+
+export const TRUST_ITEMS = [
+  "Full Custom Coding",
+  "SEO Friendly",
+  "Google Ads Ready",
+  "Mobile First",
+]
+
+// ============================================
+// ABOUT & BENTO (Untuk Komponen Home)
+// ============================================
+export const ABOUT = {
+  eyebrow: "Tentang Kami",
+  title: "Kami membangun aset digital yang bekerja untuk Anda 24/7",
+  desc: "WebKu adalah studio digital yang berfokus pada pembuatan website premium untuk bisnis Indonesia. Kami percaya website bukan sekadar kartu nama digital — ia adalah mesin pertumbuhan bisnis Anda.",
+  points: [
+    "Tim developer & desainer berpengalaman 5+ tahun",
+    "Teknologi modern: Next.js, Laravel, dan cloud hosting",
+    "Pendekatan personal: setiap project ditangani langsung oleh founder",
+    "Garansi maintenance & support setelah website live",
+  ],
+}
+
+export const BENTO = [
+  {
+    title: "Desain yang Mewakili Karakter Brand",
+    desc: "Website dirancang agar terlihat modern, rapi, dan sesuai identitas bisnis Anda — bukan sekadar template yang terlihat sama dengan banyak website lain.",
+    chips: ["UI/UX Modern", "Mobile First", "Fast Loading"],
+    big: true,
+    icon: "palette",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+  },
+  {
+    title: "Struktur Halaman yang Mudah Dipahami",
+    desc: "Setiap halaman disusun agar calon pelanggan cepat memahami siapa Anda dan apa yang ditawarkan.",
+    icon: "layout",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&q=80",
+  },
+  {
+    title: "Siap Dipakai untuk Iklan & SEO",
+    desc: "Website disiapkan untuk Google Ads, SEO, dan campaign digital agar promosi terukur.",
+    icon: "trending",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+  },
+  {
+    title: "CTA yang Jelas untuk Meningkatkan Leads",
+    desc: "Tombol WhatsApp, form kontak, dan navigasi dibuat strategis agar pengunjung mudah bertanya.",
+    icon: "cursor",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
+  },
+]
+
+// ============================================
+// SERVICES (Untuk Komponen Layanan Lama)
+// ============================================
+export const SERVICES = [
+  {
+    cat: "01 — Credibility",
+    title: "Company Profile",
+    desc: "Bangun kepercayaan klien dengan website profil profesional yang menampilkan kredibilitas bisnis Anda.",
+    icon: "building",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
+    tags: ["Profil", "Portfolio", "Kontak"],
+  },
+  {
+    cat: "02 — Conversion",
+    title: "Landing Page",
+    desc: "Halaman fokus untuk campaign iklan yang mengubah pengunjung menjadi leads berkualitas.",
+    icon: "target",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    tags: ["Iklan", "Leads", "A/B Test"],
+  },
+]
 
 // ============================================
 // PRICING PLANS (3 kolom tabel)
@@ -153,7 +232,7 @@ export const PRICING_INCLUDES = [
 ]
 
 // ============================================
-// HOST FEATURES
+// HOST FEATURES & REASONS
 // ============================================
 export const HOST_FEATURES = [
   {
@@ -178,9 +257,6 @@ export const HOST_FEATURES = [
   },
 ]
 
-// ============================================
-// TOP 3 REASONS (Dengan gambar SiteGround)
-// ============================================
 export const REASONS = [
   {
     icon: "rocket",
@@ -224,7 +300,7 @@ export const REASONS = [
 ]
 
 // ============================================
-// MANAGEMENT (2 kolom dengan gambar laptop)
+// MANAGEMENT & CUSTOMER STORIES
 // ============================================
 export const MANAGEMENT = [
   { title: "Semua di satu tempat", desc: "Domain, email, website, backup — semua dikelola dari satu dashboard sederhana. Temukan yang Anda butuhkan dalam hitungan detik." },
@@ -233,9 +309,6 @@ export const MANAGEMENT = [
   { title: "Site Tools kami", desc: "Setiap website mendapat Site Tools sendiri — kelola, bagikan akses, dan beralih antar website secara independen." },
 ]
 
-// ============================================
-// CUSTOMER STORIES (dengan gambar SiteGround)
-// ============================================
 export const STORIES = [
   {
     quote: "Website saya jadi jauh lebih cepat di WebKu, yang benar-benar membantu peningkatan traffic organik.",
@@ -261,26 +334,10 @@ export const STORIES = [
     image: IMAGES.story3,
     color: "bg-[#e8f7ee]",
   },
-  {
-    quote: "Tidak hanya menghemat 75% biaya bulanan, tapi kecepatan website kami meningkat saat pindah ke WebKu!",
-    site: "kofindcoffee.com",
-    role: "Coffee Shop",
-    name: "Sari Dewi",
-    image: IMAGES.story4,
-    color: "bg-[#e8edff]",
-  },
-  {
-    quote: "WebKu jelas dirancang untuk membuat website bekerja sangat cepat. Banyak fitur yang bisa kami manfaatkan untuk membuat performa website 88.6% lebih cepat.",
-    site: "japanskiexperience.com",
-    role: "Ski Travel Agent",
-    name: "Andi Pratama",
-    image: IMAGES.story5,
-    color: "bg-[#f0e8ff]",
-  },
 ]
 
 // ============================================
-// CTA FINAL
+// CTA FINAL & PROCESS & TESTIMONIALS
 // ============================================
 export const CTA_FINAL = {
   title: "Bergabunglah dengan 150+ pemilik bisnis yang mempercayai layanan kami.",
@@ -289,6 +346,32 @@ export const CTA_FINAL = {
   ctaSecondary: "Punya pertanyaan? Mari bicara",
   image: IMAGES.cta,
 }
+
+export const PROCESS = [
+  { num: "01", title: "Konsultasi", desc: "Diskusi tujuan, audiens, dan fitur yang dibutuhkan.", duration: "Hari 1" },
+  { num: "02", title: "Materi", desc: "Kumpulkan logo, konten, foto, dan informasi penting untuk website.", duration: "Hari 2-3" },
+  { num: "03", title: "Struktur", desc: "Susun sitemap dan struktur halaman yang rapi dan mudah dipahami.", duration: "Hari 3-4" },
+  { num: "04", title: "Development", desc: "Eksekusi desain modern dan pengembangan website yang cepat.", duration: "Hari 4-7" },
+  { num: "05", title: "Testing", desc: "Cek tampilan, kecepatan, dan fungsi di semua perangkat.", duration: "Hari 7-8" },
+  { num: "06", title: "Online", desc: "Website siap dipublikasikan dan dipromosikan.", duration: "Hari 8" },
+]
+
+export const TESTIMONIALS = [
+  {
+    name: "Rina Wijaya",
+    role: "Owner, Renata Tour",
+    quote: "Website yang dibuat tim WebKu benar-benar mengubah cara pelanggan melihat bisnis kami. Booking naik 40% dalam 3 bulan pertama.",
+    avatar: "RW",
+    rating: 5,
+  },
+  {
+    name: "Budi Santoso",
+    role: "Founder, Mandiri Banana",
+    quote: "Prosesnya transparan, revisi cepat, dan hasilnya melebihi ekspektasi. Timnya responsif dan profesional.",
+    avatar: "BS",
+    rating: 5,
+  },
+]
 
 // ============================================
 // FAQ (Panjang)
@@ -368,7 +451,7 @@ export const SERVICE_TESTIMONIALS = [
 export const PRICING_HERO = {
   title: "Harga transparan, hasil maksimal.",
   subtitle: "Pilih paket yang sesuai dengan skala bisnis Anda. Tanpa biaya tersembunyi, semua sudah termasuk domain, hosting, dan support.",
-  video: "https://cdn.dribbble.com/userupload/49218917/file/95da409101c0f70bcd9cf2c5501e1bb6.mp4", // Video Dribbble
+  video: "https://cdn.dribbble.com/userupload/49218917/file/95da409101c0f70bcd9cf2c5501e1bb6.mp4",
 }
 
 export const PRICING_CATEGORIES = [
@@ -380,7 +463,6 @@ export const PRICING_CATEGORIES = [
   { id: "sistem-custom", label: "Sistem Custom" },
 ]
 
-// Tambahkan interface ini
 export interface PricingTier {
   name: string;
   desc: string;
@@ -388,25 +470,17 @@ export interface PricingTier {
   period: string;
   features: string[];
   popular: boolean;
-  badge?: string; // Tanda tanya (?) artinya opsional
+  badge?: string;
 }
 
-// Data paket harga per kategori
-export const PRICING_TIERS = {
+export const PRICING_TIERS: Record<string, PricingTier[]> = {
   "company-profile": [
     {
       name: "Starter",
       desc: "Cocok untuk UMKM yang ingin hadir profesional.",
       price: "2.100.000",
       period: "sekali bayar",
-      features: [
-        "Hingga 5 halaman",
-        "Desain custom responsif",
-        "SEO on-page dasar",
-        "Domain & Hosting 1 tahun",
-        "Email bisnis 2 akun",
-        "Form kontak & WhatsApp",
-      ],
+      features: ["Hingga 5 halaman", "Desain custom responsif", "SEO on-page dasar", "Domain & Hosting 1 tahun", "Email bisnis 2 akun", "Form kontak & WhatsApp"],
       popular: false,
     },
     {
@@ -414,15 +488,7 @@ export const PRICING_TIERS = {
       desc: "Untuk bisnis yang ingin kelola konten sendiri.",
       price: "2.900.000",
       period: "sekali bayar",
-      features: [
-        "Hingga 8 halaman",
-        "Semua fitur Starter",
-        "Blog & galeri dinamis",
-        "Panel admin (CMS)",
-        "Training 1 sesi",
-        "Google Analytics setup",
-        "Free maintenance 1 bulan",
-      ],
+      features: ["Hingga 8 halaman", "Semua fitur Starter", "Blog & galeri dinamis", "Panel admin (CMS)", "Training 1 sesi", "Google Analytics setup", "Free maintenance 1 bulan"],
       popular: true,
       badge: "Paling Populer",
     },
@@ -431,15 +497,7 @@ export const PRICING_TIERS = {
       desc: "Solusi lengkap untuk perusahaan besar.",
       price: "4.200.000",
       period: "sekali bayar",
-      features: [
-        "Hingga 12 halaman",
-        "Semua fitur Growth",
-        "Google Ads pixel & tracking",
-        "Setup 1 campaign Ads",
-        "Multi-bahasa (ID & EN)",
-        "Backup otomatis mingguan",
-        "Free maintenance 3 bulan",
-      ],
+      features: ["Hingga 12 halaman", "Semua fitur Growth", "Google Ads pixel & tracking", "Setup 1 campaign Ads", "Multi-bahasa (ID & EN)", "Backup otomatis mingguan", "Free maintenance 3 bulan"],
       popular: false,
     },
   ],
@@ -557,15 +615,7 @@ export const PRICING_TIERS = {
       desc: "Sistem khusus sesuai kebutuhan bisnis Anda.",
       price: "Konsultasi",
       period: "harga menyesuaikan",
-      features: [
-        "Analisis kebutuhan & alur bisnis",
-        "Rancangan fitur & mockup",
-        "Desain UI/UX custom",
-        "Dashboard admin & hak akses",
-        "Integrasi API & payment",
-        "Keamanan & backup",
-        "Source code milik Anda",
-      ],
+      features: ["Analisis kebutuhan & alur bisnis", "Rancangan fitur & mockup", "Desain UI/UX custom", "Dashboard admin & hak akses", "Integrasi API & payment", "Keamanan & backup", "Source code milik Anda"],
       popular: false,
     },
   ],
@@ -610,14 +660,13 @@ export const PORTOFOLIO_GALLERY = [
   "https://cdn.dribbble.com/userupload/48841259/file/c53606fe72cf9fee27c15bf76d5af00e.png?format=webp&resize=400x300&vertical=center",
 ]
 
-
 // ============================================
 // DATA HALAMAN FAQ
 // ============================================
 export const FAQ_HERO = {
   title: "Ada yang bisa kami bantu?",
   subtitle: "Temukan jawaban atas pertanyaan yang paling sering diajukan seputar layanan, harga, dan proses pembuatan website di WebKu.",
-  videoBg: "https://cdn.dribbble.com/userupload/17954723/file/original-c33ce0d880b26637e8ad3ddd194159d6.mp4", // Bisa pakai video yg sama atau ganti
+  videoBg: "https://cdn.dribbble.com/userupload/17954723/file/original-c33ce0d880b26637e8ad3ddd194159d6.mp4",
 }
 
 // ============================================
