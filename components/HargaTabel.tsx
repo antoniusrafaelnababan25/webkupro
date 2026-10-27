@@ -5,16 +5,27 @@ import { motion, AnimatePresence } from "motion/react"
 import { PRICING_CATEGORIES, PRICING_TIERS, CHECKOUT_BENEFITS, WA_LINK } from "@/lib/constants"
 import { Icon } from "./icons"
 
+// Definisikan Tipe Data agar TypeScript tidak protes
+interface PricingTier {
+  name: string;
+  desc: string;
+  price: string;
+  period: string;
+  features: string[];
+  popular: boolean;
+  badge?: string;
+}
+
 export default function HargaTabel() {
   const [active, setActive] = useState("company-profile")
-  const [selectedTier, setSelectedTier] = useState<any | null>(null)
+  const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null)
   const [form, setForm] = useState({ name: "", phone: "", notes: "" })
   
-  const tiers = PRICING_TIERS[active as keyof typeof PRICING_TIERS] || []
+  // Ambil data dengan tipe yang aman
+  const tiers = (PRICING_TIERS[active as keyof typeof PRICING_TIERS] || []) as PricingTier[]
 
-  const handleOpenCheckout = (tier: any) => {
+  const handleOpenCheckout = (tier: PricingTier) => {
     setSelectedTier(tier)
-    // Reset form saat buka baru
     setForm({ name: "", phone: "", notes: "" })
   }
 
@@ -22,9 +33,9 @@ export default function HargaTabel() {
     e.preventDefault()
     if (!selectedTier) return
     
-    const message = `Halo WebKita, saya ingin memesan paket website.
+    const message = `Halo WebKu, saya ingin memesan paket website.
     
-*Paket:* ${selectedTier.name} (${active})
+*Paket:* ${selectedTier.name} (${active.replace("-", " ")})
 *Harga:* Rp ${selectedTier.price}
 
 *Nama:* ${form.name}
@@ -97,7 +108,7 @@ Mohon informasi selanjutnya. Terima kasih.`
 
                 {/* Fitur */}
                 <ul className="mt-8 flex-1 space-y-4 border-t border-purple-100 pt-8">
-                  {tier.features.map((f: string) => (
+                  {tier.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-gray-700">
                       <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
                         tier.popular ? "bg-purple-500 text-white" : "bg-purple-100 text-purple-600"
@@ -109,7 +120,7 @@ Mohon informasi selanjutnya. Terima kasih.`
                   ))}
                 </ul>
 
-                {/* CTA - Buka Modal Checkout */}
+                {/* CTA */}
                 <button
                   onClick={() => handleOpenCheckout(tier)}
                   className={`mt-8 flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition ${
@@ -126,14 +137,13 @@ Mohon informasi selanjutnya. Terima kasih.`
           </AnimatePresence>
         </div>
 
-        {/* Note */}
         <p className="mt-12 text-center text-xs text-gray-500">
           Harga di atas belum termasuk PPN. Semua paket sudah termasuk domain, hosting 1 tahun, SSL, dan garansi revisi.
         </p>
       </div>
 
       {/* =========================================
-          MODAL CHECKOUT (Muncul dari Kanan)
+          MODAL CHECKOUT (Panel Kanan Elegan)
       ========================================= */}
       <AnimatePresence>
         {selectedTier && (
@@ -153,27 +163,27 @@ Mohon informasi selanjutnya. Terima kasih.`
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 0.5, type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 z-[110] flex h-full w-full max-w-md flex-col border-l border-purple-500/30 bg-white shadow-[-20px_0_50px_rgba(0,0,0,0.1)]"
+              className="fixed top-0 right-0 z-[110] flex h-full w-full max-w-md flex-col border-l border-purple-200 bg-[#faf8ff] shadow-[-20px_0_50px_rgba(0,0,0,0.1)]"
             >
               {/* Header Panel */}
-              <div className="flex items-center justify-between border-b border-gray-100 p-6 md:p-8">
+              <div className="flex items-center justify-between border-b border-purple-100 p-6 md:p-8">
                 <div>
                   <div className="text-[10px] font-bold tracking-widest text-purple-600 uppercase">Checkout</div>
                   <h3 className="font-serif text-2xl font-bold text-[#1a0b2e]">Ringkasan Pesanan</h3>
                 </div>
                 <button 
                   onClick={() => setSelectedTier(null)}
-                  className="rounded-full bg-gray-100 p-2 text-gray-500 transition hover:bg-purple-100 hover:text-purple-600"
+                  className="rounded-full bg-white p-2 text-gray-500 shadow-sm transition hover:bg-purple-100 hover:text-purple-600"
                 >
                   <Icon name="close" className="h-5 w-5" />
                 </button>
               </div>
 
-              {/* Isi Panel (Scrollable) */}
+              {/* Isi Panel */}
               <div className="flex-1 overflow-y-auto p-6 md:p-8">
                 
                 {/* Ringkasan Paket */}
-                <div className="rounded-2xl bg-purple-50 p-5 border border-purple-100">
+                <div className="rounded-2xl border border-purple-100 bg-white p-5 shadow-sm">
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-xs font-bold text-purple-600 uppercase">{active.replace("-", " ")}</div>
@@ -197,9 +207,9 @@ Mohon informasi selanjutnya. Terima kasih.`
                   ))}
                 </ul>
 
-                <div className="my-6 h-px w-full bg-gray-100" />
+                <div className="my-6 h-px w-full bg-purple-100" />
 
-                {/* Form Data Diri */}
+                {/* Form */}
                 <form id="checkout-form" onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="mb-2 block text-xs font-bold text-gray-500 uppercase">Nama Lengkap</label>
@@ -209,7 +219,7 @@ Mohon informasi selanjutnya. Terima kasih.`
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="John Doe"
-                      className="w-full rounded-xl border border-gray-200 bg-[#faf8ff] px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
+                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
                     />
                   </div>
                   <div>
@@ -220,7 +230,7 @@ Mohon informasi selanjutnya. Terima kasih.`
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="08xxxxxxxxxx"
-                      className="w-full rounded-xl border border-gray-200 bg-[#faf8ff] px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
+                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
                     />
                   </div>
                   <div>
@@ -230,14 +240,14 @@ Mohon informasi selanjutnya. Terima kasih.`
                       value={form.notes}
                       onChange={(e) => setForm({ ...form, notes: e.target.value })}
                       placeholder="Permintaan khusus..."
-                      className="w-full resize-none rounded-xl border border-gray-200 bg-[#faf8ff] px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
+                      className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#1a0b2e] outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10"
                     />
                   </div>
                 </form>
               </div>
 
-              {/* Footer Panel (Tombol Submit) */}
-              <div className="border-t border-gray-100 bg-gray-50 p-6 md:p-8">
+              {/* Footer Tombol */}
+              <div className="border-t border-purple-100 bg-white p-6 md:p-8">
                 <button
                   type="submit"
                   form="checkout-form"

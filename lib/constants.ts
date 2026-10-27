@@ -380,6 +380,17 @@ export const PRICING_CATEGORIES = [
   { id: "sistem-custom", label: "Sistem Custom" },
 ]
 
+// Tambahkan interface ini
+export interface PricingTier {
+  name: string;
+  desc: string;
+  price: string;
+  period: string;
+  features: string[];
+  popular: boolean;
+  badge?: string; // Tanda tanya (?) artinya opsional
+}
+
 // Data paket harga per kategori
 export const PRICING_TIERS = {
   "company-profile": [
